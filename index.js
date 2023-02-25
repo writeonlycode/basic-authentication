@@ -7,7 +7,11 @@ const fastify = Fastify({
 // Helper function to decode the authorization header sent by the browser. It
 // returns an array with the username and the password.
 function decodeAuthorizationHeader(header) {
-  const authorizationEncoded = header?.split(" ")?.at(1);
+  const [authorizationScheme, authorizationEncoded] = header?.split(" ");
+
+  if (authorizationScheme.toLowerCase() !== "basic") {
+    throw new Error("Unsupported Authentication Scheme");
+  }
 
   const authorizationDecoded = Buffer.from(
     authorizationEncoded,
@@ -37,6 +41,7 @@ fastify.get("/", async (req, reply) => {
   reply.code(401).header("WWW-Authenticate", "Basic");
 });
 
+// Starts the server.
 const start = async () => {
   try {
     await fastify.listen({ port: 3000 });
