@@ -1,12 +1,12 @@
 # Basic Authentication
 
-Basic authentication refers to an authentication and authorizations framework
+Basic Authentication refers to an authentication and authorization framework
 and schema defined in [RFC9910](https://www.rfc-editor.org/rfc/rfc9110) and
 [RFC7617](https://www.rfc-editor.org/rfc/rfc7617.html). RFC (Request For
 Comments) documents are technical specifications for how the internet should
 work.
 
-In a nutshell, the Basic authentication strategy is the following: The client
+In a nutshell, the Basic Authentication strategy is the following: The client
 sends a request to the server. The server receives the request and checks for
 the presence of the `Authorization` header. If the header is present, it checks
 the credentials and, if the credentials are valid, responds with the
