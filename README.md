@@ -1,12 +1,12 @@
 # Basic Authentication
 
-Basic Authentication refers to [RFC9910](https://www.rfc-editor.org/rfc/rfc9110) and 
+Basic authentication refers to an authentication and authorizations framework
+and schema defined in [RFC9910](https://www.rfc-editor.org/rfc/rfc9110) and
 [RFC7617](https://www.rfc-editor.org/rfc/rfc7617.html). RFC (Request For
 Comments) documents are technical specifications for how the internet should
-work. These two RFCs, specifically, are technical specifications for how to
-implement a basic authentication and authorization strategy.
+work.
 
-In a nutshell, the **Basic Authentication** strategy is the following: The client
+In a nutshell, the Basic authentication strategy is the following: The client
 sends a request to the server. The server receives the request and checks for
 the presence of the `Authorization` header. If the header is present, it checks
 the credentials and, if the credentials are valid, responds with the
@@ -45,7 +45,11 @@ Base64(username:password)`. Since Base64 is a reversible encoding scheme, then
 if the connection itself isn't secure, this authentication method wouldn't be
 secure: anyone can decode the credentials and retrieve the original the
 username and password. Therefore, it should not be used to protect sensitive
-information.
+information. The use cases for basic authentication would be when the server
+only needs a thin layer of protection to prevent unregistered clients to easily
+access the resources in the server. And even then some precautions have to be
+in place. (Such as: clients should not be allowed to chose their own
+passwords.)
 
 After the browser authenticates the first request, it typically assumes that
 the user also has authorization to access the other resources in the same
