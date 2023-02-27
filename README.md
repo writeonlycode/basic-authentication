@@ -1,4 +1,4 @@
-# Basic Authentication
+# Basic Authentication[^1]
 
 Basic Authentication refers to an authentication and authorization framework
 and schema defined in [RFC9910](https://www.rfc-editor.org/rfc/rfc9110) and
@@ -82,3 +82,9 @@ The strategy is fairly straightforward: if checks for the presence of the
 `Authorization` header; if it's present, it retrieves and checks the
 credentials, and if they are valid, respond with a welcome message. Otherwise,
 it sends a 401 response with the `WWW-Authenticate` header set to `Basic`.
+
+[^1]: **Disclaimer:** The code presented above and in the source files doesn't
+  follow the security best practices that would be necessary in a real world
+  application. The purpose of the code is to be as simple as possible, so the
+  focus can be on the logic relevant to demonstrate the Basic Authentication
+  strategy.
